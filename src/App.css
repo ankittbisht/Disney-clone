@@ -39,34 +39,31 @@
 .read-the-docs {
     color: #888;
 }
-.shimmerBG {
-    animation-duration: 2.2s;
-    animation-fill-mode: forwards;
-    animation-iteration-count: infinite;
-    animation-name: shimmer;
-    animation-timing-function: linear;
-    background: #ddd;
-    background: linear-gradient(to right, #F6F6F6 8%, #F0F0F0 18%, #F6F6F6 33%);
-    background-size: 1200px 100%;
-}
 
-@keyframes shimmer {
+/* CSS for shimmer loading effect */
+.shimmer-loading {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .shimmer-loading::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 200%;
+    height: 100%;
+    background: linear-gradient(to right, transparent 0%, rgba(255, 255, 255, 0.3) 50%, transparent 100%);
+    animation: shimmer 1.5s infinite;
+  }
+  
+  @keyframes shimmer {
     0% {
-        background-position: -1200px 0;
+      transform: translateX(-100%);
     }
     100% {
-        background-position: 1200px 0;
+      transform: translateX(100%);
     }
-}
-
-.shimmer-card {
-    position: relative;
-    -webkit-box-shadow: 0 6px 8px rgba(0, 0, 0, 0.1);
-    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.1);
-    background-color: #FFF;
-    border-radius: 6px;
-    height: 310px; /* Set to match the height of the object-cover class */
-    width: calc(100% - 5px); /* Adjust width as needed */
-    margin-right: 5px; /* Adjust margin as needed */
-    overflow: hidden;
-}
+  }
+  

@@ -32,7 +32,7 @@ function Header() {
           ))}
         </div>
         {/* it means that after medium size it will be hidden and otherwise it is flex  */}
-        <div className=" flex md:hidden gap-5">
+        <div className="flex md:hidden gap-5">
           {menu.map(
             (item, index) =>
               index < 3 && <HeaderItem key={index} name={""} Icon={item.icon} />
@@ -40,7 +40,7 @@ function Header() {
           <div className="md:hidden" onClick={handleClick}>
             <HeaderItem name={""} Icon={HiDotsVertical} />
             {toggle && (
-              <div className="absolute mt-3 px-5 py-4 bg-black border-[1px] border-gray-700 ">
+              <div className="absolute mt-3 px-1 py-1 bg-black border-[1px] border-gray-700 ">
                 {menu.map(
                   (item, index) =>
                     index >= 3 && (
