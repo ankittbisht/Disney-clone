@@ -3,6 +3,7 @@ import MovieCard from "./MovieCard";
 import { IoChevronBackOutline, IoChevronForwardOutline } from "react-icons/io5";
 import HrMovieCard from "./HrMovieCard";
 import { GENRE_MOVIE_API } from "../utils/constant";
+import ShimmerCard from "./ShimmerCard";
 
 function MovieList({ genreId, index_i }) {
   const [genreMovie, SetGenreMovie] = useState([]);
@@ -26,7 +27,9 @@ function MovieList({ genreId, index_i }) {
     element.current.scrollLeft -= 500;
   };
 
-  return (
+  return genreMovie.length === 0 ? (
+    <ShimmerCard iterations={5} />
+   ) : (
     <div className="relative">
       <IoChevronBackOutline
         onClick={() => slideLeft(elemRef)}
@@ -45,7 +48,7 @@ function MovieList({ genreId, index_i }) {
             {index_i % 3 == 0 ? (
               <HrMovieCard movie={item} />
             ) : (
-              <MovieCard  movie={item} />
+              <MovieCard movie={item} />
             )}
           </React.Fragment>
         ))}

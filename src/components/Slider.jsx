@@ -5,7 +5,7 @@ import {
   SCREEN_WIDTH,
   TRENDING_MOVIE,
 } from "../utils/constant";
-import Shimmer from "./Shimmer";
+import ShimmerSlider from "./ShimmerSlider";
 
 function Slider() {
   const [movies, SetMovies] = useState([]);
@@ -32,7 +32,7 @@ function Slider() {
   };
 
   return movies.length === 0 ? (
-   <Shimmer/>
+    <ShimmerSlider />
   ) : (
     <div>
       <HiChevronLeft
